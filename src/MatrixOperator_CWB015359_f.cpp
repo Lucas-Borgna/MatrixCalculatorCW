@@ -15,7 +15,7 @@ using namespace std;
 
 void Matrix_Display(float Input[3][3], char output[10]) // Function that defines how the array is shown on the console 
 	{
-		outputfile.open("Results_Output.txt", ios::app);  // Opening of file for editing
+		outputfile.open("output.txt", ios::app);  // Opening of file for editing
 		outputfile<<endl<<output<<endl;
 		cout<<endl<<output<<endl;
 		for (int Row=0; Row<3; Row++)	//Initialization of Row counter for Input matrix, going from prefix 0 to 2. 
@@ -85,7 +85,7 @@ void SubBA (float Input1[3][3], float Input2[3][3]) //Function definition for Ma
 }
 void Det_Matrix(float Input[3][3])
 {
-	outputfile.open("Results_Output.txt", ios::app); //outputfile needs to be reopened here because Det_Matrix does not use the Matrix_Display function
+	outputfile.open("output.txt", ios::app); //outputfile needs to be reopened here because Det_Matrix does not use the Matrix_Display function
 	float Determinant=0;
 	float d1,d2,d3,d4,d5,d6,sumd123,sumd456; //Local variables for this function 
 	d1 = Input[0][0]*Input[1][1]*Input[2][2];   // Makes the calculating the determinant visually easier
@@ -155,11 +155,11 @@ int main (void) // Definition of Main Functions
 {
 	float MatrixA[3][3];  // Defining the 3x3 arrays in which Matrix A and B will be stored in
 	float MatrixB[3][3];
-	outputfile.open("Results_Output.txt",ios::out|ios::trunc); //Opening of file to clear it everytime the program is restarted
+	outputfile.open("output.txt",ios::out|ios::trunc); //Opening of file to clear it everytime the program is restarted
 	outputfile.close();
 	{
 		ifstream infile; // calling upon the input txt file.
-		infile.open ("Input_Matrices_A&B.txt"); // opening the file
+		infile.open ("input.txt"); // opening the file
 		if(!infile.is_open()) // Case if there is an error reading the file for numerous reasons.
 		{
 			cout<<"Error: Catastrophic Failure Imminent"<<"\n";
